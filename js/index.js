@@ -1,56 +1,29 @@
-const getResult = (event) =>{
-    event.preventDefault();
+const getResult = (event) => {
+  event.preventDefault();
 
-    const letter = document.getElementById("letter").value.trim().toLowerCase();
-    const title = document.getElementById("title");
-    const pic = document.getElementById("pic");
+  const letter = document.getElementById("letter").value.trim().toLowerCase();
+  const title = document.getElementById("title");
+  const pic = document.getElementById("pic");
 
-    if(letter == 'a'){
-        title.innerHTML = "Apple";
-        pic.src = "Assets/apple.jpg";
-    }
-    else if(letter == 'b'){
-        title.innerHTML = "Ball";
-        pic.src = "Assets/ball.jpg";
-    }
-    else if(letter == 'c'){
-        title.innerHTML = "Cat";
-        pic.src = "Assets/cat.jpg";
-    }
-    else if(letter == 'd'){
-        title.innerHTML = "Dog";
-        pic.src = "Assets/dog.jpg";
-    }
-    else if(letter == 'e'){
-        title.innerHTML = "Elephant";
-        pic.src = "Assets/elephant.jpg";
-    }
-    else if(letter == 'f'){
-        title.innerHTML = "Fruit";
-        pic.src = "Assets/fruit.jpg";
-    }
-    else if(letter == 'g'){
-        title.innerHTML = "Giraffe";
-        pic.src = "Assets/giraffe.jpg";
-    }
-    else if(letter == 'h'){
-        title.innerHTML = "Hen";
-        pic.src = "Assets/hen.jpg";
-    }
-    else if(letter == 'i'){
-        title.innerHTML = "Ice Cream";
-        pic.src = "Assets/ice-cream.jpg";
-    }
-    else if(letter == 'y'){
-        title.innerHTML = "Yoyo";
-        pic.src = "Assets/yoyo.jpg";
-    }
-    else if(letter == 'z'){
-        title.innerHTML = "Zebra";
-        pic.src = "Assets/zebra.jpg";
-    }
-    else{
-        title.innerHTML = "Not Found";
-        pic.src = "Assets/not found.jpg";
-    }
-}
+  const data = {
+    a: ["Apple", "Assets/apple.jpg"],
+    b: ["Ball", "Assets/ball.jpg"],
+    c: ["Cat", "Assets/cat.jpg"],
+    d: ["Dog", "Assets/dog.jpg"],
+    e: ["Elephant", "Assets/elephant.jpg"],
+    f: ["Fruit", "Assets/fruit.jpg"],
+    g: ["Giraffe", "Assets/giraffe.jpg"],
+    h: ["Hen", "Assets/hen.jpg"],
+    i: ["Ice Cream", "Assets/ice-cream.jpg"],
+    y: ["Yoyo", "Assets/yoyo.jpg"],
+    z: ["Zebra", "Assets/zebra.jpg"]
+  };
+
+  if (data[letter]) {
+    title.innerHTML = data[letter][0];
+    pic.src = data[letter][1];
+  } else {
+    title.innerHTML = "Not Found";
+    pic.src = "Assets/not found.jpg";
+  }
+};
